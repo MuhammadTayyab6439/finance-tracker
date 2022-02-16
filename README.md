@@ -101,3 +101,40 @@ then add these flash messages
 in application.html.erb
 
 so in this way user is required to signup or login to go to the root rout
+
+--------------------------------------------------------
+
+
+#install bootstrap
+
+yarn add bootstrap@4.3.1 jquery popper.js
+
+then add
+
+import "bootstrap"
+into javascript/packs/application.js
+
+then add javascript
+
+const webpack = require("webpack")
+
+environment.plugins.append("Provide", new webpack.ProvidePlugin({
+
+$: 'jquery',
+
+jQuery: 'jquery',
+
+Popper: ['popper.js', 'default']
+
+}))
+
+into  config/webpack/environment.js 
+
+
+then add
+
+*= require bootstrap
+
+into assets/stylesheet/application.css
+
+-------------------------------------------------------------------------
