@@ -9,13 +9,19 @@ class StocksController < ApplicationController
                 format.js { render partial: 'users/result.js' }
             end
            else
-            flash[:alert]="please enter a valid symbol"
-            redirect_to my_portfolio_path
+
+            respond_to do |format|
+                flash.now[:alert]="please enter a valid symbol"
+                format.js { render partial: 'users/result.js' }
+            end
+           
            end
 
         else
-            flash[:alert]="please enter a symbol"
-            redirect_to my_portfolio_path
+            respond_to do |format|
+            flash.now[:alert]="please enter a symbol"
+            format.js { render partial: 'users/result.js' }
+            end
         end
     end
 
