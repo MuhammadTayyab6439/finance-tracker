@@ -12,6 +12,7 @@
   <body>
 
     <%= render 'layouts/navigation' %>
+
     <div class="container">
           <% if notice %>
           <div class='alert alert-success'>
@@ -31,5 +32,6 @@
         <% end %> 
       <%= yield %>
     </div>
+    
   </body>
 </html>

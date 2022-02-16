@@ -155,3 +155,41 @@ The devise:views:bootstrap_templates generator will copy all views to your appli
 $ rails generate devise:views:bootstrap_templates
 
 this will show the views under devise folder and bootstrap automatically implemented to it
+
+--------------------------------------------------------------------
+#use 3rd party api
+
+gem 'iex-ruby-client'
+
+$bundle install
+
+then signup for https://iexcloud.io/
+then on the sandup testing mode 
+then go to token
+
+there is our publishable key=Tpk_7d709e6e2b544265bb06756cf59f0e94
+
+then we can practice on rails console
+> client = IEX::Api::Client.new(
+   publishable_token: 'Tpk_7d709e6e2b544265bb06756cf59f0e94',
+   endpoint: 'https://iexcloud.io/console/tokens'
+   )
+>client.price('GOOG')
+
+---------------------------------------
+or we can write code on our stock model
+
+$ rails generate model Stock ticker:string name:string last_price:decimal
+
+$rails db:migrate
+
+class Stock < ApplicationRecord
+    def self.new_lookup(ticker_symbol)
+        client = IEX::Api::Client.new( publishable_token: 'Tpk_7d709e6e2b544265bb06756cf59f0e94',
+                                        endpoint: 'https://sandbox.iexapis.com/v1')
+        client.price(ticker_symbol)
+
+    end
+end
+
+>Stock.new_lookup('GOOG')
