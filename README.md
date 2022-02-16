@@ -138,3 +138,20 @@ then add
 into assets/stylesheet/application.css
 
 -------------------------------------------------------------------------
+
+#use bootstrap devise gem to style devise views
+
+https://github.com/hisea/devise-bootstrap-views
+
+Add this line to your application's Gemfile:
+
+gem 'devise-bootstrap-views', '~> 1.0'
+And then execute:
+
+$ bundle install
+
+The devise:views:bootstrap_templates generator will copy all views to your application, so you can modify the files as you wish:
+
+$ rails generate devise:views:bootstrap_templates
+
+this will show the views under devise folder and bootstrap automatically implemented to it
