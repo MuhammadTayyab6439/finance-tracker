@@ -1,0 +1,25 @@
+
+
+<div class="card card-header display-card mt-4">
+  
+ 
+  <strong>Name: </strong> <%= @user.fullname %>
+  <strong>Email: </strong> <%= @user.email %>
+  
+          <% if current_user.not_friends_with?(@user.id) %>
+              <%= link_to 'Follow friend?', friendships_path(friend: @user),
+                            class: "btn btn-sm btn-success", method: :post %>
+            <% else %>
+              <span class="badge badge-secondary">
+                You are friends
+              </span>
+            <% end %>                          
+</div>
+
+<div class="row">
+<div class="col-9">
+  <% if @stocks_user.present? %>
+          <%= render 'stocks/list' %>
+  <% end %>
+</div>
+</div>

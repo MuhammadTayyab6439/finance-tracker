@@ -2,9 +2,9 @@
 <thead>
 
   <tr>
+    <th scope="col">email</th>
     <th scope="col">first_name</th>
     <th scope="col">last_name</th>
-    <th scope="col">email</th>
     <th scope="col">Actions</th>
   </tr>
 </thead>
@@ -15,7 +15,9 @@
     <td><%= friend.first_name %></td>
     <td><%= friend.last_name %></td>
 
-    <td><%= link_to "Remove",  friendship_path(friend), class:"btn btn-warning",method: :delete, 
+    <td>
+    <%= link_to "View Profile",  user_path(friend), class:"btn btn-success" %>
+    <%= link_to "Remove",  friendship_path(friend), class:"btn btn-warning",method: :delete, 
     data:{confirm:"are u sure"} %></td>
 
   </tr>

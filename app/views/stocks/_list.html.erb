@@ -15,8 +15,15 @@
     <td><%= stock.name %></td>
     <td><%= stock.last_price %></td>
 
-    <td><%= link_to "Remove",user_stock_path(stock),class:"btn btn-warning",method: :delete, 
-    data:{confirm:"are u sure"} %></td>
+    <td> <% if current_user.id==@user.id %><%= link_to "Remove",user_stock_path(stock),class:"btn btn-warning",method: :delete, 
+    data:{confirm:"are u sure"} %>
+    <%else%>
+        <div class="div badge badge-secondary">
+
+    	<em>u can only view other stocks</em>
+        </div>
+    <% end %>
+    </td>
 
   </tr>
   <% end %>
