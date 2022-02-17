@@ -71,4 +71,9 @@ class User < ApplicationRecord
   def except_current_user(users)
     users.reject { |user| user.id == self.id }
   end
+
+  #this method return true if users are not friend of each other
+  def not_friends_with?(id_of_friend)
+    !self.friends.where(id: id_of_friend).exists?
+  end
 end
