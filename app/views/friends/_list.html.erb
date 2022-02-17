@@ -1,0 +1,24 @@
+<table class="table table-bordered table-hover mt-5">
+<thead>
+
+  <tr>
+    <th scope="col">first_name</th>
+    <th scope="col">last_name</th>
+    <th scope="col">email</th>
+    <th scope="col">Actions</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+  <% @my_friends.each do |friend| %>
+    <th scope="row"><%= friend.email %></th>
+    <td><%= friend.first_name %></td>
+    <td><%= friend.last_name %></td>
+
+    <td><%= link_to "Remove", "#", class:"btn btn-warning",method: :delete, 
+    data:{confirm:"are u sure"} %></td>
+
+  </tr>
+  <% end %>
+</tbody>
+</table>
