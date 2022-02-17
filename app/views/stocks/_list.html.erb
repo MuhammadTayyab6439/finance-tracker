@@ -1,0 +1,21 @@
+<table class="table table-bordered table-hover">
+<thead>
+
+  <tr>
+    <th scope="col">ticker</th>
+    <th scope="col">name</th>
+    <th scope="col">last_price</th>
+    <th scope="col">Actions</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+  <% @stocks_user.each do |stock| %>
+    <th scope="row"><%= stock.ticker %></th>
+    <td><%= stock.name %></td>
+    <td><%= stock.last_price %></td>
+    <td><%= "placeholder" %></td>
+  </tr>
+  <% end %>
+</tbody>
+</table>
